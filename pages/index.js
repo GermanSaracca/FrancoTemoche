@@ -1,6 +1,6 @@
 import Head from 'next/head'
-//Contentful package
-import { createClient } from 'contentful'
+
+import client from '../configs/contenfulClient'
 //Components
 import BlogCard from '../components/BlogCard'
 
@@ -29,11 +29,7 @@ const Home = ({ blogs }) => {
 }
 
 export async function getStaticProps() {
-  //Contentful client
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-  })
+  // Get posts/blogs from Contentful
   const blogs = await client.getEntries({
     content_type: 'blog',
   })

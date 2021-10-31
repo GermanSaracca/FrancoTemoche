@@ -4,6 +4,10 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  overflow-x: hidden;
+}
+body {
+  overflow: hidden;
 }
 
 a {
@@ -36,10 +40,17 @@ a {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: rgb(34, 26, 121);
+  background-color: rgb(191, 191, 191);
 }
 .page-content {
   flex: 1 0 auto;
+  position: relative;
+}
+.go-back-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  cursor: pointer;
 }
 
 /* Blog Card */
