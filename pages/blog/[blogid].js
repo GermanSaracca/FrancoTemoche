@@ -9,7 +9,7 @@ const BlogDetail = ({ blog }) => {
   }
 
   const { featuredImage, title, textContent, author } = blog.fields
-  const authorName = author.fields.name
+  const authorName = author?.fields.name
 
   return (
     <div className="blog">
