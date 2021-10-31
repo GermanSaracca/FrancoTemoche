@@ -5,8 +5,8 @@ const BlogCard = ({ blog }) => {
   const { fields, sys, metadata } = blog
   const { title, slug, author, thumbnail } = fields
 
-  const authorName = author.fields.name
-  const authorEmail = author.fields.email
+  const authorName = author?.fields.name
+  const authorEmail = author?.fields.email
   const thumbnailUrl = thumbnail.fields.file.url
   //   const thumbnailWidth = thumbnail.fields.file.details.image.width
   //   const thumbnailHeight = thumbnail.fields.file.details.image.height
@@ -26,8 +26,12 @@ const BlogCard = ({ blog }) => {
       </div>
       <div className="content">
         <h3>{title}</h3>
-        <p>{authorName}</p>
-        <small>{authorEmail}</small>
+        {author && (
+          <>
+            <p>{authorName}</p>
+            <small>{authorEmail}</small>
+          </>
+        )}
       </div>
       <div className="actions">
         <Link href={`/blog/${slug}`}>Ir al articulo</Link>

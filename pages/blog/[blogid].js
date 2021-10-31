@@ -17,8 +17,8 @@ const BlogDetail = ({ blog }) => {
         {/* <h1 className="title">{title}</h1> */}
       </div>
       <section className="blog__content">
-        {/* { author && <span className="author-tag">Por {authorName}</span>} */}
-        <span className="author-tag">Por {authorName}</span>
+        {author && <span className="author-tag">Por {authorName}</span>}
+
         <h1 className="blog__content__title">{title}</h1>
         <div className="blog__content__text">
           {documentToReactComponents(textContent)}
