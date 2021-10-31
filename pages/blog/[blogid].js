@@ -1,8 +1,13 @@
 import client from '../../configs/contenfulClient'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import LoadingPage from '../../components/LoadingPage'
 
 const BlogDetail = ({ blog }) => {
-  console.log(blog)
+  //
+  if (!blog) {
+    return <LoadingPage />
+  }
+
   const { featuredImage, title, textContent, author } = blog.fields
   const authorName = author.fields.name
 
@@ -12,6 +17,7 @@ const BlogDetail = ({ blog }) => {
         {/* <h1 className="title">{title}</h1> */}
       </div>
       <section className="blog__content">
+        {/* { author && <span className="author-tag">Por {authorName}</span>} */}
         <span className="author-tag">Por {authorName}</span>
         <h1 className="blog__content__title">{title}</h1>
         <div className="blog__content__text">
@@ -112,7 +118,7 @@ export async function getStaticProps({ params }) {
     props: {
       blog: items[0],
     },
-    revalidate: 2,
+    revalidate: 10,
   }
 }
 
@@ -132,7 +138,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   }
 }
 export default BlogDetail
