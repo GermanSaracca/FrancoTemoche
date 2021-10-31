@@ -55,7 +55,7 @@ const BlogDetail = ({ blog }) => {
           display: flex;
           flex-direction: column;
           align-items: center;
-          width: 85vw;
+          width: 86vw;
           max-width: 1366px;
           padding: 4rem 2rem;
           margin: -20vw auto 1.25rem;
