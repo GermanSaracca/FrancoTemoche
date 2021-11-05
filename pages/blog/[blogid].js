@@ -1,6 +1,7 @@
 import client from '../../configs/contenfulClient'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import LoadingPage from '../../components/LoadingPage'
+import NotFoundPage from '../404'
 
 const BlogDetail = ({ blog }) => {
   //
@@ -118,6 +119,7 @@ export async function getStaticProps({ params }) {
     return {
       redirect: {
         destination: '/',
+        permanent: false,
       },
     }
   }
