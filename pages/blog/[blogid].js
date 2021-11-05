@@ -114,6 +114,14 @@ export async function getStaticProps({ params }) {
     'fields.slug': params.blogid,
   })
 
+  if (!items.length) {
+    return {
+      redirect: {
+        destination: '/',
+      },
+    }
+  }
+
   return {
     props: {
       blog: items[0],
@@ -141,4 +149,5 @@ export async function getStaticPaths() {
     fallback: true,
   }
 }
+
 export default BlogDetail
